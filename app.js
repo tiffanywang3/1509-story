@@ -5,6 +5,11 @@ var fs = require('fs')
 var mime = require('mime')
 var bodyParser = require('body-parser')
 
+var swig = require('swig')
+app.engine('html', swig.renderFile)
+app.set('view engine', 'html')
+app.set('views', process.cwd() + '/view')
+
 
 app.use(express.static(__dirname + '/public')); //__dirname is the folder this file is in.
 
